@@ -35,3 +35,9 @@ p list.contain?(5)
 
 puts 'Contain 7?'
 p list.contain?(7)
+
+puts "Find 5"
+p list.find(5)
+
+puts "Find 7"
+p list.find(7)
