@@ -1,5 +1,6 @@
 class Node
   attr_accessor :next_node, :value
+
   def initialize(v = nil)
     @value = v
     @next_node = nil
@@ -11,7 +12,6 @@ class Node
 end
 
 class LinkedList
-
   def initialize
     @head = nil
   end
@@ -40,9 +40,8 @@ class LinkedList
     end
   end
 
-
   def to_s
-    until_list_end("") do |prev, node|
+    until_list_end('') do |prev, node|
       return "#{prev}( #{node.value} )" if node.next_node.nil?
 
       "#{prev}( #{node.value} ) -> "
@@ -60,28 +59,25 @@ class LinkedList
 
   def tail
     node = head
-    until node.end_point?
-      node = node.next_node
-    end
+    node = node.next_node until node.end_point?
     node
   end
 
   def pop
     node = head
-    until node.next_node.end_point?
-      node = node.next_node
-    end
+    node = node.next_node until node.next_node.end_point?
 
     last_node = node.next_node
     node.next_node = nil
 
-    return last_node
+    last_node
   end
 
   def contain?(value)
     node = @head
-    while !node.nil?
+    until node.nil?
       return true if node.value == value
+
       node = node.next_node
     end
 
@@ -91,8 +87,9 @@ class LinkedList
   def find(value)
     node = @head
     index = 0
-    while !node.nil?
+    until node.nil?
       return index if node.value == value
+
       index += 1
       node = node.next_node
     end
@@ -102,32 +99,30 @@ class LinkedList
 
   def insert_at(value, index)
     new_node = Node.new(value)
-    node_at_index = self.at(index)
+    node_at_index = at(index)
     return if node_at_index.nil?
 
     if index == 0
       new_node.next_node = head
       @head = new_node
     else
-      node_at_previous_index = self.at(index - 1)
+      node_at_previous_index = at(index - 1)
       new_node.next_node = node_at_index
       node_at_previous_index.next_node = new_node
     end
   end
 
   def remove_at(index)
-    node_at_index = self.at(index)
+    node_at_index = at(index)
     return if node_at_index.nil?
 
     if index == 0
       @head = @head.next_node
     else
-      node_at_previous_index = self.at(index - 1)
+      node_at_previous_index = at(index - 1)
       node_at_previous_index.next_node = node_at_index.next_node
     end
   end
-
-
 
   private
 
