@@ -100,6 +100,35 @@ class LinkedList
     nil
   end
 
+  def insert_at(value, index)
+    new_node = Node.new(value)
+    node_at_index = self.at(index)
+    return if node_at_index.nil?
+
+    if index == 0
+      new_node.next_node = head
+      @head = new_node
+    else
+      node_at_previous_index = self.at(index - 1)
+      new_node.next_node = node_at_index
+      node_at_previous_index.next_node = new_node
+    end
+  end
+
+  def remove_at(index)
+    node_at_index = self.at(index)
+    return if node_at_index.nil?
+
+    if index == 0
+      @head = @head.next_node
+    else
+      node_at_previous_index = self.at(index - 1)
+      node_at_previous_index.next_node = node_at_index.next_node
+    end
+  end
+
+
+
   private
 
   def until_list_end(initial, &block)

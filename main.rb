@@ -41,3 +41,22 @@ p list.find(5)
 
 puts "Find 7"
 p list.find(7)
+
+puts "Insert 3 at index 0"
+list.insert_at(3, 0)
+puts list
+puts "Insert 7 at index 2"
+list.insert_at(7, 2)
+puts list
+
+puts 'Remove at index 0'
+list.remove_at(0)
+puts list
+
+puts 'Remove at index 1'
+list.remove_at(1)
+puts list
+
+puts 'Remove at index 1'
+list.remove_at(1)
+puts list
