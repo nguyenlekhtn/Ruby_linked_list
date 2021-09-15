@@ -40,14 +40,14 @@ class LinkedList
 
   def to_s
     until_list_end('') do |prev, node|
-      return "#{prev}( #{node.value} )" if node.next_node.nil?
+      return "#{prev}( #{node.value} )" if node.end_point?
 
       "#{prev}( #{node.value} ) -> "
     end
   end
 
   def at(index)
-    return nil if index < 0
+    return nil if index.negative?
 
     node = head
     index.times do
