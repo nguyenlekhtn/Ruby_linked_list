@@ -33,8 +33,6 @@ class LinkedList
   end
 
   def size
-    total = 0
-    node = @head
     until_list_end(0) do |acc, _node|
       acc + 1
     end
@@ -49,6 +47,8 @@ class LinkedList
   end
 
   def at(index)
+    return nil if index < 0
+
     node = head
     index.times do
       node = node.next_node
