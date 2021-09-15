@@ -10,7 +10,7 @@ This project is to create a linked list class and its methods. The class itself 
 * #size
 * #head
 * #tail
-* at(index)
+* #at(index)
 * #pop
 * #contains?(value)
 * #find(value)
